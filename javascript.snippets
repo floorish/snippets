@@ -1,0 +1,34 @@
+snippet plugin "Creates a new javascript/jQuery plugin" b
+/**
+ * ${4:This is $1}
+ */
+(function(${1:plugin}, $, undefined) {
+
+    $.fn.$1 = function(options)  {
+
+        var options = $.extend({}, $.fn.$1.defaults, options );
+
+        return this.each( function() {
+            $1.init( $(this), options);
+        });
+
+    };
+
+    $1.init = function(el)  {
+
+        ${2:// Code}
+
+    };
+
+    $.fn.$1.defaults = {
+        ${3}
+    };
+
+})(window.$1 = window.$1 || {}, jQuery);
+endsnippet
+
+
+snippet tthis "Description" b
+var $this = $(this);
+
+endsnippet
