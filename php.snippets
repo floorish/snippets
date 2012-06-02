@@ -1,0 +1,32 @@
+snippet pdo "Create new PDO connection and fetch some results" !b
+$${6:id} = $7;
+
+try {
+    $conn = new PDO('mysql:host=${1:localhost};dbname=${2:db}', ${3:$username}, ${4:$password}, array( PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $stmt = $conn->prepare('SELECT * FROM ${5:table} WHERE $6 = :$6');
+    $stmt->execute(array('$6' => $$6));
+
+    if ( count($result) ) {
+        foreach($result as $row) {
+            print_r($row);
+        }
+    } else {
+        echo "No rows returned.";
+    }
+
+} catch(PDOException $e) {
+    echo 'ERROR: ' . $e->getMessage();
+}
+endsnippet
+
+
+snippet pdo_delete "Delete statement for PDO" !b
+$stmt = $pdo->prepare('DELETE FROM ${1:someTable} WHERE ${2:id} = :$2');
+$stmt->bindParam(':$2', $$2);
+$stmt->execute();
+
+echo $stmt->rowCount();
+endsnippet
