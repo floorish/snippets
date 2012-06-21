@@ -30,3 +30,9 @@ $stmt->execute();
 
 echo $stmt->rowCount();
 endsnippet
+
+snippet fun "Create new function" !b
+${1:public }${2:static }function ${3:doSomething}( ${4:$argument} ) {
+    $0
+}
+endsnippet
