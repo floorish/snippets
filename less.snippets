@@ -1,1 +1,15 @@
 extends css
+
+snippet .loop "Create a mixin loop" !b
+.${1:loop} (@index) when (@index > 0) {
+    ${2://content}
+    .$1(@index - 1);
+}
+.$1 (0) {}
+endsnippet
+
+snippet varclass "Create a variable class name" !b
+(~".${1:class}") {
+    ${2://content}
+}
+endsnippet
