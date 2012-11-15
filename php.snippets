@@ -1,3 +1,13 @@
+snippet php "Open php tag" !b
+<?php
+
+${1}
+endsnippet
+
+snippet echo "Quickly echo something in a View"
+<?php echo ${1}; ?>
+endsnippet
+
 snippet pdo "Create new PDO connection and fetch some results" !b
 $${6:id} = $7;
 
@@ -32,7 +42,8 @@ echo $stmt->rowCount();
 endsnippet
 
 snippet fun "Create new function" !b
-${1:public }${2:static }function ${3:doSomething}( ${4:$argument} ) {
+${1:public }${2:static }function ${3:doSomething}( ${4:$argument} )
+{
     $0
 }
 endsnippet
