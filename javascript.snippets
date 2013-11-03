@@ -50,3 +50,27 @@ $('${1:parent}').on( '${2:event}', '${3:elements}', function(e) {
     $0
 }
 endsnippet
+
+snippet grunt "Create gruntfile" !b
+module.exports = function(grunt) {
+
+	// Load the Grunt plugin(s)
+	grunt.loadNpmTasks('');
+
+	// Grunt configuration
+	grunt.initConfig({
+		pkg: grunt.file.readJSON('package.json'),
+
+		${1:task}: {
+			${2:options}: {
+				$0
+			}
+		}
+
+	});
+
+	// Default task(s).
+	grunt.registerTask('default', [$1]);
+
+};
+endsnippet
